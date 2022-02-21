@@ -1,17 +1,74 @@
 import Header from '../layouts/e-commerce/Header'
 
 import PhantomOne from '../assets/images/image 8.png'
+import Cta from '../layouts/e-commerce/Cta'
+import { Menu, Transition } from '@headlessui/react'
+import { Fragment } from 'react'
+
+const sortOptions = [
+    { name: 'Most Popular', href: '#', current: true },
+    { name: 'Best Rating', href: '#', current: false },
+    { name: 'Newest', href: '#', current: false },
+    { name: 'Price: Low to High', href: '#', current: false },
+    { name: 'Price: High to Low', href: '#', current: false },
+]
+  
+function classNames(...classes: any) {   
+    return classes.filter(Boolean).join(' ')
+}
 
 export default function Ecommerce() {
   return (
     <div>
         <Header/>
+        <Cta/>
         <div className="p-5 border-t">
             <div className="flex justify-between">
                 <p className='text-xl font-semibold'>Found 376 results for <span className="text-blue-500">dji phantom</span></p>
                 <div className="flex">
                     <div className="rounded-sm border px-2 py-1 flex">
-                        <p className="text-gray-400">Sorted by</p> 
+                    <Menu as="div" className="relative inline-block text-left">
+                        <div>
+                        <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
+                            <span className="font-semibold mr-2">Sort </span> Most popular
+                            <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 10.5L12 14.5L16 10.5" stroke="#6E7C87"/>
+                            </svg>
+
+                        </Menu.Button>
+                        </div>
+
+                        <Transition
+                        as={Fragment}
+                        enter="transition ease-out duration-100"
+                        enterFrom="transform opacity-0 scale-95"
+                        enterTo="transform opacity-100 scale-100"
+                        leave="transition ease-in duration-75"
+                        leaveFrom="transform opacity-100 scale-100"
+                        leaveTo="transform opacity-0 scale-95"
+                        >
+                        <Menu.Items className="origin-top-right absolute right-0 mt-2 w-40 rounded-sm shadow-2xl bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                            <div className="py-1">
+                            {sortOptions.map((option) => (
+                                <Menu.Item key={option.name}>
+                                {({ active }) => (
+                                    <a
+                                    href={option.href}
+                                    className={classNames(
+                                        option.current ? 'font-medium text-gray-900' : 'text-gray-500',
+                                        active ? 'bg-gray-100' : '',
+                                        'block px-4 py-2 text-sm'
+                                    )}
+                                    >
+                                    {option.name}
+                                    </a>
+                                )}
+                                </Menu.Item>
+                            ))}
+                            </div>
+                        </Menu.Items>
+                        </Transition>
+                    </Menu> 
                     </div>
                     <div className="border rounded-sm flex items-center ml-4">
                         <div className="bg-gray-300 border-r p-2">
