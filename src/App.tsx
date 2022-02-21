@@ -1,12 +1,12 @@
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
-import Header from './layouts/e-commerce/Header'
+import Ecommerce from './pages/Ecommerce'
 
 function App() {
 
   return (
     <Routes>
-      <Route path='/' element={<Header/>}/>
+      <Route path='/' element={<Ecommerce/>}/>
     </Routes>
   )
 }
