@@ -210,7 +210,7 @@ export default function Project() {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
-                        <input placeholder='Search' type="text" className="w-32 outline-none border-none ml-2 h-6" />
+                        <input placeholder='Search' type="text" className="w-32 text-sm outline-none border-none ml-2 h-6" />
                     </div>
 
                     <div className="flex ml-10">
@@ -368,11 +368,11 @@ export default function Project() {
                             </div>
                         </div>
                     </div>
-                    <div className="w-1/3 bg-gray-50 mr-5">
-
+                    <div className="w-1/3 bg-gray-50 mr-5 p-3">
+                        <h3 className="uppercase text-base font-semibold text-gray-900">In progress</h3>
                     </div>
-                    <div className="w-1/3 bg-gray-50 mr-5">
-
+                    <div className="w-1/3 bg-gray-50 mr-5 p-3">
+                        <h3 className="uppercase text-base font-semibold text-gray-900">Done</h3>
                     </div>
                 </div>
             </div>
