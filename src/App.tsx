@@ -6,6 +6,9 @@ import ComplexData from './pages/ComplexData'
 import Document from './pages/Document'
 import Project from './pages/Project'
 import LoginScreenOne from './pages/dashboard/pages/authentication/LoginScreenOne'
+import EmailTemplates from './pages/dashboard/EmailTemplates'
+import CookieBanners from './pages/dashboard/CookieBanners'
+import MobileApp from './pages/dashboard/pages/authentication/landing/MobileApp'
 
 function App() {
 
@@ -19,7 +22,14 @@ function App() {
 
       <Route path='/kanban' element={<Project/>}/>
 
+      <Route path='/dashboard/email-templates' element={<EmailTemplates/>}/>
+
+      <Route path='/dashboard/cookie-banners' element={<CookieBanners/>}/>
+
+
       <Route path='/dashboard/pages/authentication/login_1' element={<LoginScreenOne/>}/>
+
+      <Route path='/dashboard/pages/landing/mobile-app' element={<MobileApp/>}/>
     </Routes>
   )
 }
