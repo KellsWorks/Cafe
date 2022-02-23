@@ -1,15 +1,21 @@
-import React from 'react'
+import { Transition, Dialog } from '@headlessui/react'
+import React, {useState, Fragment } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import User from '../assets/images/testimonial.jpg'
+import { ArrowRightIcon, CalculatorIcon, ChevronDoubleDownIcon } from '@heroicons/react/outline'
+
 
 export default function Project() {
+
+    const [open, setOpen] = useState(false)
+
   return (
     <div>
 
         <div className="bg-white p-3 border-b flex justify-between">
             
             <div className='flex'>
-                <button>
+                <button onClick={() => {setOpen(true)}}>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
                     </svg>
@@ -22,25 +28,74 @@ export default function Project() {
                 </button>
 
                 <div className="flex space-x-4 ml-10 items-center">
-                    <Link to={'#'} className='hover:text-blue-500 transition duration-200 mr-2'>
+                    <Link to={'#'} className='hover:text-blue-500 hover:font-medium transition duration-200 mr-2'>
                         Your work
                     </Link>
-                    <Link to={'#'} className='hover:text-blue-500 transition duration-200 mr-2'>
+                    <Link to={'#'} className='hover:text-blue-500 hover:font-medium transition duration-200 mr-2'>
                         Projects
                     </Link>
-                    <Link to={'#'} className='hover:text-blue-500 transition duration-200 mr-2'>
+                    <Link to={'#'} className='hover:text-blue-500 hover:font-medium transition duration-200 mr-2'>
                         Filters
                     </Link>
-                    <Link to={'#'} className='hover:text-blue-500 transition duration-200 mr-2'>
+                    <Link to={'#'} className='hover:text-blue-500 hover:font-medium transition duration-200 mr-2'>
                         Dashboards
                     </Link>
-                    <Link to={'#'} className='hover:text-blue-500 transition duration-200 mr-2'>
+                    <Link to={'#'} className='hover:text-blue-500 hover:font-medium transition duration-200 mr-2'>
                         People
                     </Link>
-                    <Link to={'#'} className='hover:text-blue-500 transition duration-200 mr-2'>
+                    <Link to={'#'} className='hover:text-blue-500 hover:font-medium transition duration-200 mr-2'>
                         Apps
                     </Link>
-                    <button className="px-3 py-1 border text-base rounded-sm">Create</button>
+                    <button type="button" data-modal-toggle="authentication-modal" className="px-3 py-1 border text-base rounded-sm hover:bg-blue-500 hover:text-white transition duration-150">Create</button>
+ 
+
+                    <div id="authentication-modal" aria-hidden="true" className="hidden overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center h-modal md:h-full md:inset-0">
+                        <div className="relative px-4 w-full max-w-md h-full md:h-auto">
+
+                            <div className="relative bg-white rounded-sm shadow dark:bg-gray-700">
+
+                                <div className="flex justify-end p-2">
+                                    <button type="button" className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-sm text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="authentication-modal">
+                                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                </button>
+
+                            </div>
+
+                            <form className="px-6 pb-4 space-y-6 lg:px-8 sm:pb-6 xl:pb-8" action="#">
+                                <h3 className="text-xl font-medium text-gray-900 dark:text-white">Create a new project</h3>
+                                
+                                <div>
+                                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
+                                    <input type="email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@company.com"/>
+                                </div>
+                                
+                                <div>
+                                    <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your password</label>
+                                    <input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"/>
+                                </div>
+                                
+                                <div className="flex justify-between">
+                                    <div className="flex items-start">
+                                    <div className="flex items-center h-5">
+                                    <input id="remember" aria-describedby="remember" type="checkbox" className="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800"/>
+                                </div>
+
+                                <div className="ml-3 text-sm">
+                                    <label htmlFor="remember" className="font-medium text-gray-900 dark:text-gray-300">Remember me</label>
+                                </div>
+                                
+                                </div>
+                                <a href="#" className="text-sm text-blue-500 hover:underline dark:text-blue-500">Lost Password?</a>
+                                </div>
+                                    <button type="submit" className="w-full text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-sm text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-500 dark:focus:ring-blue-800">Login to your account</button>
+                                    <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
+                                        Not registered? <a href="#" className="text-blue-500 hover:underline dark:text-blue-500">Create project</a>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+
                 </div>
 
             </div>
@@ -87,7 +142,7 @@ export default function Project() {
                         <h3 className="text-lg font-semibold">
                             Product Web
                         </h3>
-                        <p className="text-gray-400">
+                        <p className="text-gray-500">
                             Classic software project
                         </p>
                         
@@ -100,47 +155,47 @@ export default function Project() {
                 <div className="px-3 py-4 overflow-y-auto rounded bg-gray-50 dark:bg-gray-800">
                 <ul className="space-y-2">
 
-                <NavLink to="#" className="flex items-center p-2 font-medium text-base bg-blue-300 text-blue-500 rounded-sm dark:text-white hover:bg-blue-200 hover:text-blue-500 dark:hover:bg-gray-700">
+                <NavLink to="#" className="flex items-center p-2 text-base bg-blue-300 text-blue-500 rounded-sm dark:text-white hover:bg-blue-200 hover:text-blue-500 dark:hover:bg-gray-700 hover:font-medium">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm2 10a1 1 0 10-2 0v3a1 1 0 102 0v-3zm2-3a1 1 0 011 1v5a1 1 0 11-2 0v-5a1 1 0 011-1zm4-1a1 1 0 10-2 0v7a1 1 0 102 0V8z" clipRule="evenodd" />
                 </svg><span className="ml-3">Backlog</span>
                 </NavLink>
 
-                <NavLink to="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-sm dark:text-white hover:bg-blue-200 hover:text-blue-500 dark:hover:bg-gray-700">
+                <NavLink to="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-sm dark:text-white hover:bg-blue-200 hover:text-blue-500 dark:hover:bg-gray-700 hover:font-medium">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M2 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1H3a1 1 0 01-1-1V4zM8 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1H9a1 1 0 01-1-1V4zM15 3a1 1 0 00-1 1v12a1 1 0 001 1h2a1 1 0 001-1V4a1 1 0 00-1-1h-2z" />
                 </svg><span className="ml-3">Active Sprints</span>
                 </NavLink>
 
-                <NavLink to="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-sm dark:text-white hover:bg-blue-200 hover:text-blue-500 dark:hover:bg-gray-700">
+                <NavLink to="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-sm dark:text-white hover:bg-blue-200 hover:text-blue-500 dark:hover:bg-gray-700 hover:font-medium">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                 </svg><span className="ml-3">Reports</span>
                 </NavLink>
                 
                 <div className="mt-3 mb-3 border-t">
-                <NavLink to="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-sm dark:text-white hover:bg-blue-200 hover:text-blue-500 dark:hover:bg-gray-700">
+                <NavLink to="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-sm dark:text-white hover:bg-blue-200 hover:text-blue-500 dark:hover:bg-gray-700 hover:font-medium">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z" />
                 </svg><span className="ml-3">Issues</span>
                 </NavLink>
-                <NavLink to="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-sm dark:text-white hover:bg-blue-200 hover:text-blue-500 dark:hover:bg-gray-700">
+                <NavLink to="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-sm dark:text-white hover:bg-blue-200 hover:text-blue-500 dark:hover:bg-gray-700 hover:font-medium">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z" />
                 </svg><span className="ml-3">Components</span>
                 </NavLink>
-                <NavLink to="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-sm dark:text-white hover:bg-blue-200 hover:text-blue-500 dark:hover:bg-gray-700">
+                <NavLink to="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-sm dark:text-white hover:bg-blue-200 hover:text-blue-500 dark:hover:bg-gray-700 hover:font-medium">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                 </svg><span className="ml-3">Code</span>
                 </NavLink>
-                <NavLink to="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-sm dark:text-white hover:bg-blue-200 hover:text-blue-500 dark:hover:bg-gray-700">
+                <NavLink to="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-sm dark:text-white hover:bg-blue-200 hover:text-blue-500 dark:hover:bg-gray-700 hover:font-medium">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
                 <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg><span className="ml-3">Releases</span>
                 </NavLink>
-                <NavLink to="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-sm dark:text-white hover:bg-blue-200 hover:text-blue-500 dark:hover:bg-gray-700">
+                <NavLink to="#" className="flex items-center p-2 text-base font-normal text-gray-900 rounded-sm dark:text-white hover:bg-blue-200 hover:text-blue-500 dark:hover:bg-gray-700 hover:font-medium">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M9 2a2 2 0 00-2 2v8a2 2 0 002 2h6a2 2 0 002-2V6.414A2 2 0 0016.414 5L14 2.586A2 2 0 0012.586 2H9z" />
                 <path d="M3 8a2 2 0 012-2v10h8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z" />
@@ -157,21 +212,21 @@ export default function Project() {
                 <nav className="flex  pr-5 pt-3 pb-3 text-gray-700" aria-label="Breadcrumb">
                     <ol className="inline-flex items-center space-x-1 md:space-x-3">
                         <li className="inline-flex items-center">
-                            <a href="#" className="inline-flex items-center font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                            <a href="#" className="inline-flex items-center text-gray-700 hover:text-gray-900 dark:text-gray-500 dark:hover:text-white">
                             <svg className="mr-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
                             Projects
                             </a>
                         </li>
                         <li>
                             <div className="flex items-center">
-                                <svg className="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-                                <a href="#" className="ml-1 font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">International</a>
+                                <svg className="w-6 h-6 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                                <a href="#" className="ml-1 text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-500 dark:hover:text-white">International</a>
                             </div>
                         </li>
                         <li aria-current="page">
                             <div className="flex items-center">
-                                <svg className="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-                                <span className="ml-1 font-medium text-gray-400 md:ml-2 dark:text-gray-500">Product Web</span>
+                                <svg className="w-6 h-6 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                                <span className="ml-1 text-gray-500 md:ml-2 dark:text-gray-500">Product Web</span>
                             </div>
                         </li>
                     </ol>
@@ -258,7 +313,7 @@ export default function Project() {
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 11l7-7 7 7M5 19l7-7 7 7" />
                                             </svg>
                                         </button>
-                                        <div className="ml-2 bg-gray-400 text-center rounded-full w-6 h-6 text-sm">
+                                        <div className="ml-2 bg-gray-500 text-center rounded-full w-6 h-6 text-sm">
                                             2
                                         </div>
                                     </div>
@@ -290,7 +345,7 @@ export default function Project() {
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 11l7-7 7 7M5 19l7-7 7 7" />
                                             </svg>
                                         </button>
-                                        <div className="ml-2 bg-gray-400 text-center rounded-full w-6 h-6 text-sm">
+                                        <div className="ml-2 bg-gray-500 text-center rounded-full w-6 h-6 text-sm">
                                             2
                                         </div>
                                     </div>
@@ -322,7 +377,7 @@ export default function Project() {
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 11l7-7 7 7M5 19l7-7 7 7" />
                                             </svg>
                                         </button>
-                                        <div className="ml-2 bg-gray-400 text-center rounded-full w-6 h-6 text-sm">
+                                        <div className="ml-2 bg-gray-500 text-center rounded-full w-6 h-6 text-sm">
                                             2
                                         </div>
                                     </div>
@@ -354,7 +409,7 @@ export default function Project() {
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 11l7-7 7 7M5 19l7-7 7 7" />
                                             </svg>
                                         </button>
-                                        <div className="ml-2 bg-gray-400 text-center rounded-full w-6 h-6 text-sm">
+                                        <div className="ml-2 bg-gray-500 text-center rounded-full w-6 h-6 text-sm">
                                             2
                                         </div>
                                     </div>
@@ -370,6 +425,40 @@ export default function Project() {
                     </div>
                     <div className="w-1/3 bg-gray-50 mr-5 p-3">
                         <h3 className="uppercase text-base font-semibold text-gray-900">In progress</h3>
+                        <div className='mt-3 space-y-4'>
+                            <div className="bg-white shadow rounded-md border sm p-4">
+                                <p className="text-base text-gray-800">
+                                    As an external contributor, I want to be able to see status of uploaded materials
+                                </p>
+
+                                <div className="mt-3 flex items-center justify-between">
+                                    <div className="flex">
+                                        <button>
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-emerald-500" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fillRule="evenodd" d="M3 5a2 2 0 012-2h10a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm11 1H6v8l4-2 4 2V6z" clipRule="evenodd" />
+                                            </svg>
+                                        </button>
+                                        <button className="ml-2">
+                                            <ChevronDoubleDownIcon className='w-5 h-5 text-emerald-500'/>
+                                        </button>
+                                        <div className="ml-2 bg-gray-300 pt-0.5 text-center rounded-full w-6 h-6 text-sm">
+                                            3
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center">
+                                        <p>MAR-14</p>
+                                        <img src="https://i0.wp.com/post.healthline.com/wp-content/uploads/2021/02/Female_Portrait_1296x728-header-1296x729.jpg?w=1155&h=2268" alt="afro-woman" className="rounded-full ml-2 h-8 w-8 border-gray-300 border-2 object-cover" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="bg-white shadow rounded-md border sm p-4">
+                                <p className="text-base">
+                                    Replace JustComments with something
+                                </p>
+                            </div>
+
+                        </div>
                     </div>
                     <div className="w-1/3 bg-gray-50 mr-5 p-3">
                         <h3 className="uppercase text-base font-semibold text-gray-900">Done</h3>
@@ -377,6 +466,169 @@ export default function Project() {
                 </div>
             </div>
         </div>
+
+        <Transition.Root show={open} as={Fragment}>
+            <Dialog as="div" className="fixed inset-0 overflow-hidden" onClose={setOpen}>
+                <div className="absolute inset-0 overflow-hidden">
+                <Transition.Child
+                    as={Fragment}
+                    enter="ease-in-out duration-500"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100"
+                    leave="ease-in-out duration-500"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                >
+                    <Dialog.Overlay className="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
+                </Transition.Child>
+                <div className="pointer-events-none overflow-hidden fixed inset-y-0 left-0 flex max-w-full">
+                    <Transition.Child
+                    as={Fragment}
+                    enter="transform transition ease-in-out duration-500 sm:duration-700"
+                    enterFrom="-translate-x-full"
+                    enterTo="-translate-x-100"
+                    leave="transform transition ease-in-out duration-500 sm:duration-700"
+                    leaveFrom="-translate-x-0"
+                    leaveTo="-translate-x-full"
+                    >
+                    <div className="pointer-events-auto relative w-screen max-w-md">
+                        <Transition.Child
+                        as={Fragment}
+                        enter="ease-in-out duration-500"
+                        enterFrom="opacity-0"
+                        enterTo="opacity-100"
+                        leave="ease-in-out duration-500"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                        >
+                        <div className="absolute top-0 right-0 mr-2 flex pt-4 pr-2 sm:-ml-10 sm:pr-4">
+                            <button
+                            type="button"
+                            className="text-gray-300 outline-none"
+                            onClick={() => setOpen(false)}
+                            >
+                            <span className="sr-only">Close panel</span>
+                            <ArrowRightIcon className="h-6 w-6" aria-hidden="true" />
+                            </button>
+                        </div>
+                        </Transition.Child>
+                        <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
+                        <div className="px-4 sm:px-6">
+                            <Dialog.Title className="text-lg font-medium text-gray-900"> Projects </Dialog.Title>
+                        </div>
+                        <div className="relative mt-6 flex-1 px-4 sm:px-6">
+                            <div className="w-full flex items-center">
+                                <div className="w-1/4 flex flex-col items-center py-2">
+                                    <div className="flex items-center bg-blue-500 text-white hover:bg-sky-500 rounded w-12 h-12">
+                                        <CalculatorIcon className='w-6 h-6 ml-3'/>
+                                    </div>
+                                    <p className="text-base">Commerce</p>
+                                </div>
+                                <div className="w-1/4 flex flex-col items-center py-2">
+                                    <div className="flex items-center bg-emerald-500 text-white hover:bg-green-500 rounded w-12 h-12">
+                                        <CalculatorIcon className='w-6 h-6 ml-3'/>
+                                    </div>
+                                    <p className="text-base">Health</p>
+                                </div>
+                                <div className="w-1/4 flex flex-col items-center py-2">
+                                    <div className="flex items-center bg-red-500 text-white hover:bg-red-500 rounded w-12 h-12">
+                                        <CalculatorIcon className='w-6 h-6 ml-3'/>
+                                    </div>
+                                    <p className="text-base">Commerce</p>
+                                </div>
+                                <div className="w-1/4 flex flex-col items-center py-2">
+                                    <div className="flex items-center bg-indigo-500 text-white hover:bg-indigo-500 rounded w-12 h-12">
+                                        <CalculatorIcon className='w-6 h-6 ml-3'/>
+                                    </div>
+                                    <p className="text-base">Commerce</p>
+                                </div>
+                            </div>
+                            <div className="w-full flex items-center">
+                                <div className="w-1/4 flex flex-col items-center py-2">
+                                    <div className="flex items-center bg-blue-500 text-white hover:bg-sky-500 rounded w-12 h-12">
+                                        <CalculatorIcon className='w-6 h-6 ml-3'/>
+                                    </div>
+                                    <p className="text-base">Commerce</p>
+                                </div>
+                                <div className="w-1/4 flex flex-col items-center py-2">
+                                    <div className="flex items-center bg-emerald-500 text-white hover:bg-green-500 rounded w-12 h-12">
+                                        <CalculatorIcon className='w-6 h-6 ml-3'/>
+                                    </div>
+                                    <p className="text-base">Health</p>
+                                </div>
+                                <div className="w-1/4 flex flex-col items-center py-2">
+                                    <div className="flex items-center bg-red-500 text-white hover:bg-red-500 rounded w-12 h-12">
+                                        <CalculatorIcon className='w-6 h-6 ml-3'/>
+                                    </div>
+                                    <p className="text-base">Commerce</p>
+                                </div>
+                                <div className="w-1/4 flex flex-col items-center py-2">
+                                    <div className="flex items-center bg-indigo-500 text-white hover:bg-indigo-500 rounded w-12 h-12">
+                                        <CalculatorIcon className='w-6 h-6 ml-3'/>
+                                    </div>
+                                    <p className="text-base">Commerce</p>
+                                </div>
+                            </div>
+                            <div className="w-full flex items-center">
+                                <div className="w-1/4 flex flex-col items-center py-2">
+                                    <div className="flex items-center bg-rose-500 text-white hover:bg-rose-500 rounded w-12 h-12">
+                                        <CalculatorIcon className='w-6 h-6 ml-3'/>
+                                    </div>
+                                    <p className="text-base">Commerce</p>
+                                </div>
+                                <div className="w-1/4 flex flex-col items-center py-2">
+                                    <div className="flex items-center bg-lime-500 text-white hover:bg-lime-500 rounded w-12 h-12">
+                                        <CalculatorIcon className='w-6 h-6 ml-3'/>
+                                    </div>
+                                    <p className="text-base">Health</p>
+                                </div>
+                                <div className="w-1/4 flex flex-col items-center py-2">
+                                    <div className="flex items-center bg-orange-500 text-white hover:bg-orange-500 rounded w-12 h-12">
+                                        <CalculatorIcon className='w-6 h-6 ml-3'/>
+                                    </div>
+                                    <p className="text-base">Commerce</p>
+                                </div>
+                                <div className="w-1/4 flex flex-col items-center py-2">
+                                    <div className="flex items-center bg-slate-500 text-white hover:bg-slate-500 rounded w-12 h-12">
+                                        <CalculatorIcon className='w-6 h-6 ml-3'/>
+                                    </div>
+                                    <p className="text-base">Commerce</p>
+                                </div>
+                            </div>
+                            <div className="w-full flex items-center">
+                                <div className="w-1/4 flex flex-col items-center py-2">
+                                    <div className="flex items-center bg-cyan-500 text-white hover:bg-sky-cyan rounded w-12 h-12">
+                                        <CalculatorIcon className='w-6 h-6 ml-3'/>
+                                    </div>
+                                    <p className="text-base">Commerce</p>
+                                </div>
+                                <div className="w-1/4 flex flex-col items-center py-2">
+                                    <div className="flex items-center bg-teal-500 text-white hover:bg-teal-500 rounded w-12 h-12">
+                                        <CalculatorIcon className='w-6 h-6 ml-3'/>
+                                    </div>
+                                    <p className="text-base">Health</p>
+                                </div>
+                                <div className="w-1/4 flex flex-col items-center py-2">
+                                    <div className="flex items-center bg-pink-500 text-white hover:bg-pink-500 rounded w-12 h-12">
+                                        <CalculatorIcon className='w-6 h-6 ml-3'/>
+                                    </div>
+                                    <p className="text-base">Commerce</p>
+                                </div>
+                                <div className="w-1/4 flex flex-col items-center py-2">
+                                    <div className="flex items-center bg-purple-500 text-white hover:bg-purple-500 rounded w-12 h-12">
+                                        <CalculatorIcon className='w-6 h-6 ml-3'/>
+                                    </div>
+                                    <p className="text-base">Commerce</p>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    </Transition.Child>
+                </div>
+                </div>
+            </Dialog>
+            </Transition.Root>
     </div>
   )
 }

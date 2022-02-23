@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import User from '../assets/images/testimonial.jpg'
 
 export default function Document() {
@@ -8,39 +8,40 @@ export default function Document() {
             <div className="w-16 max-h-screen h-screen bg-gray-50 p-4 border-r flex flex-col items-center space-y-4">
                 <img src={User} alt="user-icon" className="rounded-full object-cover w-8 h-8" />
 
-                <Link to={'#'}>
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M14 10.0008C12.9391 10.0008 11.9217 10.4222 11.1716 11.1723C10.4214 11.9225 10 12.9399 10 14.0008C10 15.0616 10.4214 16.079 11.1716 16.8292C11.9217 17.5793 12.9391 18.0008 14 18.0008C15.0609 18.0008 16.0783 17.5793 16.8284 16.8292C17.5786 16.079 18 15.0616 18 14.0008C18 12.9399 17.5786 11.9225 16.8284 11.1723C16.0783 10.4222 15.0609 10.0008 14 10.0008ZM8 14.0008C7.99988 13.0565 8.22264 12.1255 8.65017 11.2835C9.0777 10.4415 9.69792 9.71236 10.4604 9.15529C11.2229 8.59822 12.1061 8.22898 13.0381 8.0776C13.9702 7.92622 14.9249 7.99698 15.8245 8.28412C16.724 8.57126 17.5432 9.06667 18.2152 9.73006C18.8872 10.3935 19.3931 11.2061 19.6919 12.1019C19.9906 12.9977 20.0737 13.9514 19.9343 14.8853C19.795 15.8193 19.4372 16.7072 18.89 17.4768L23.707 22.2938C23.8892 22.4824 23.99 22.735 23.9877 22.9972C23.9854 23.2594 23.8802 23.5102 23.6948 23.6956C23.5094 23.881 23.2586 23.9862 22.9964 23.9884C22.7342 23.9907 22.4816 23.8899 22.293 23.7078L17.477 18.8918C16.5794 19.53 15.5233 19.9089 14.4247 19.9869C13.326 20.0648 12.2271 19.8389 11.2483 19.3337C10.2695 18.8286 9.44869 18.0638 8.87572 17.1231C8.30276 16.1824 7.99979 15.1022 8 14.0008Z" fill="#48535B"/>
+                <NavLink to={'#'} className='hover:bg-blue-300 hover:text-blue-500 p-3 rounded transition duration-150'>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-900 hover:text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
-                </Link>
+                </NavLink>
 
-                <Link to={'#'}>
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16 24C18.1217 24 20.1566 23.1571 21.6569 21.6569C23.1571 20.1566 24 18.1217 24 16C24 13.8783 23.1571 11.8434 21.6569 10.3431C20.1566 8.84285 18.1217 8 16 8C13.8783 8 11.8434 8.84285 10.3431 10.3431C8.84285 11.8434 8 13.8783 8 16C8 18.1217 8.84285 20.1566 10.3431 21.6569C11.8434 23.1571 13.8783 24 16 24ZM17 12C17 11.7348 16.8946 11.4804 16.7071 11.2929C16.5196 11.1054 16.2652 11 16 11C15.7348 11 15.4804 11.1054 15.2929 11.2929C15.1054 11.4804 15 11.7348 15 12V16C15.0001 16.2652 15.1055 16.5195 15.293 16.707L18.121 19.536C18.2139 19.6289 18.3242 19.7026 18.4456 19.7529C18.567 19.8032 18.6971 19.8291 18.8285 19.8291C18.9599 19.8291 19.09 19.8032 19.2114 19.7529C19.3328 19.7026 19.4431 19.6289 19.536 19.536C19.6289 19.4431 19.7026 19.3328 19.7529 19.2114C19.8032 19.09 19.8291 18.9599 19.8291 18.8285C19.8291 18.6971 19.8032 18.567 19.7529 18.4456C19.7026 18.3242 19.6289 18.2139 19.536 18.121L17 15.586V12Z" fill="#48535B"/>
+                <NavLink to={'#'} className='hover:bg-blue-300 hover:text-blue-500 p-3 rounded transition duration-150'>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-900 hover:text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <   path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                </Link>
+                </NavLink>
 
-                <Link to={'#'}>
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M17.4897 9.17C17.1097 7.61 14.8898 7.61 14.5098 9.17C14.453 9.40442 14.3417 9.62213 14.185 9.80541C14.0282 9.9887 13.8304 10.1324 13.6076 10.2248C13.3848 10.3172 13.1434 10.3556 12.9029 10.3371C12.6624 10.3185 12.4297 10.2435 12.2238 10.118C10.8518 9.282 9.28175 10.852 10.1177 12.224C10.6577 13.11 10.1788 14.266 9.17075 14.511C7.60975 14.89 7.60975 17.111 9.17075 17.489C9.40523 17.5458 9.62298 17.6572 9.80626 17.8141C9.98955 17.971 10.1332 18.1689 10.2255 18.3918C10.3178 18.6147 10.3561 18.8563 10.3374 19.0968C10.3187 19.3373 10.2434 19.5701 10.1177 19.776C9.28175 21.148 10.8518 22.718 12.2238 21.882C12.4297 21.7563 12.6624 21.6811 12.9029 21.6623C13.1435 21.6436 13.385 21.682 13.6079 21.7743C13.8308 21.8666 14.0288 22.0102 14.1857 22.1935C14.3426 22.3768 14.4539 22.5945 14.5107 22.829C14.8898 24.39 17.1108 24.39 17.4888 22.829C17.5457 22.5946 17.6572 22.377 17.8142 22.1939C17.9711 22.0107 18.169 21.8672 18.3918 21.7749C18.6147 21.6826 18.8561 21.6442 19.0966 21.6628C19.3371 21.6815 19.5698 21.7565 19.7758 21.882C21.1477 22.718 22.7178 21.148 21.8818 19.776C21.7563 19.57 21.6812 19.3373 21.6626 19.0969C21.644 18.8564 21.6824 18.6149 21.7747 18.3921C21.8669 18.1692 22.0105 17.9713 22.1936 17.8144C22.3768 17.6575 22.5944 17.546 22.8288 17.489C24.3898 17.11 24.3898 14.889 22.8288 14.511C22.5943 14.4542 22.3765 14.3428 22.1932 14.1859C22.01 14.029 21.8663 13.8311 21.774 13.6082C21.6817 13.3853 21.6434 13.1437 21.6621 12.9032C21.6808 12.6627 21.7561 12.4299 21.8818 12.224C22.7178 10.852 21.1477 9.282 19.7758 10.118C19.5698 10.2437 19.3371 10.3189 19.0966 10.3377C18.856 10.3564 18.6145 10.318 18.3916 10.2257C18.1687 10.1334 17.9707 9.9898 17.8138 9.80651C17.6569 9.62323 17.5456 9.40548 17.4888 9.171L17.4897 9.17ZM15.9998 19C16.7954 19 17.5585 18.6839 18.1211 18.1213C18.6837 17.5587 18.9998 16.7956 18.9998 16C18.9998 15.2044 18.6837 14.4413 18.1211 13.8787C17.5585 13.3161 16.7954 13 15.9998 13C15.2041 13 14.441 13.3161 13.8784 13.8787C13.3158 14.4413 12.9998 15.2044 12.9998 16C12.9998 16.7956 13.3158 17.5587 13.8784 18.1213C14.441 18.6839 15.2041 19 15.9998 19Z" fill="#48535B"/>
+                <NavLink to={'#'} className='hover:bg-blue-300 hover:text-blue-500 p-3 rounded transition duration-150'>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-900 hover:text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
-                </Link>
+                </NavLink>
 
-                <Link to={'#'}>
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M11 10C11 9.46957 11.2107 8.96086 11.5858 8.58579C11.9609 8.21071 12.4696 8 13 8H19C19.5304 8 20.0391 8.21071 20.4142 8.58579C20.7893 8.96086 21 9.46957 21 10V24L16 21.5L11 24V10Z" fill="#48535B"/>
+                <NavLink to={'#'} className='hover:bg-blue-300 hover:text-blue-500 p-3 rounded transition duration-150'>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-900 hover:text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
                     </svg>
-                </Link>
+                </NavLink>
 
-                <Link to={'#'}>
-                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8 12C8 11.4696 8.21071 10.9609 8.58579 10.5858C8.96086 10.2107 9.46957 10 10 10H15L17 12H22C22.5304 12 23.0391 12.2107 23.4142 12.5858C23.7893 12.9609 24 13.4696 24 14V20C24 20.5304 23.7893 21.0391 23.4142 21.4142C23.0391 21.7893 22.5304 22 22 22H10C9.46957 22 8.96086 21.7893 8.58579 21.4142C8.21071 21.0391 8 20.5304 8 20V12Z" fill="#48535B"/>
+                <NavLink to={'#'} className='hover:bg-blue-300 hover:text-blue-500 p-3 rounded transition duration-150'>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-900 hover:text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-5l-2-2H5a2 2 0 00-2 2z" />
                     </svg>
-                </Link>
+                </NavLink>
             </div>
 
-            <div className='flex flex-col'>
-                <div className="w-full justify-between flex p-3">
+            <div className='w-full sm:flex sm:flex-col'>
+                <div className="justify-between flex p-3">
                     <div className="flex">
 
                         <div className="ml-10 flex">
@@ -69,7 +70,7 @@ export default function Document() {
                                 </svg>
                             </button>
 
-                            <div className="pt-0.5 w-6 h-6 ml-2 mr-2 rounded-full bg-orange-600 text-white text-center text-sm font-medium">
+                            <div className="pt-0.5 w-5 h-5 ml-2 mr-2 rounded-full bg-blue-600 text-white text-center text-sm font-medium">
                                 P
                             </div>
 
@@ -92,7 +93,7 @@ export default function Document() {
                 </div>
 
                 <div className="p-20">
-                    <div className="bg-orange-600 text-center text-3xl text-white font-bold w-10 h-10 rounded-full">
+                    <div className="bg-blue-600 text-center text-3xl text-white font-bold w-10 h-10 rounded-full">
                         P
                     </div>
                 </div>
