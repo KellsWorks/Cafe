@@ -7,26 +7,26 @@ import Mobile from '../../../../../assets/images/mobile-app.png'
 import MockUpOne from '../../../../../assets/images/android-smartphone-free-mockup.png'
 
 
-import {MailIcon, PhoneIcon, CheckCircleIcon} from '@heroicons/react/solid'
+import {MailIcon, PhoneIcon, CheckCircleIcon, MenuIcon} from '@heroicons/react/solid'
 import { NavLink } from 'react-router-dom'
 
 export default function MobileApp() {
   return (
     <div>
         <div className="pr-5 pl-5 pt-3 pb-10" style={{ backgroundImage:  `url(${Background})` }}>
-            <div className="flex justify-between mt-2">
-                <div className="flex items-center">
+            <div className="sm:flex justify-between mt-2">
+                <div className="sm:flex items-center">
                     <div className="mr-10 flex items-center">
                       <MailIcon className='w-5 h-5 text-white'/>
                       <p className="ml-3 text-white text-sm">Info@youremail.com</p>
                     </div>
-                    <div className="mr-10 flex items-center">
+                    <div className="mr-10 flex items-center mt-3 md:mt-0">
                       <PhoneIcon className='w-5 h-5 text-white'/>
                       <p className="ml-3 text-white text-sm">(265) 555-0103</p>
                     </div>
 
                 </div>
-                <div className="flex space-x-4">
+                <div className="flex space-x-4 mt-3 md:mt-0">
 
                   <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10.5 10.125H12.375L13.125 7.125H10.5V5.625C10.5 4.8525 10.5 4.125 12 4.125H13.125V1.605C12.8805 1.57275 11.9572 1.5 10.9822 1.5C8.946 1.5 7.5 2.74275 7.5 5.025V7.125H5.25V10.125H7.5V16.5H10.5V10.125Z" fill="white"/>
@@ -48,8 +48,9 @@ export default function MobileApp() {
             </div>
 
 
-            <div className="mt-3 bg-white rounded shadow-sm p-3 flex justify-between">
-              <div className="flex items-center">
+            <div className="mt-3 bg-white rounded shadow-sm p-3 flex justify-between items-center">
+              <MenuIcon className='visible md:hidden h-5 w-5'/>
+              <div className="sm:flex items-center hidden md:visible">
                 <NavLink to='#' className="font-medium text-base hover:text-indigo-500 uppercase hover:font-medium border-b-2 border-indigo-500 mr-20 transition duration-150">
                   Home
                 </NavLink>
@@ -60,11 +61,11 @@ export default function MobileApp() {
                   Features
                 </NavLink>
               </div>
-              <div className="flex items-center">
-                <NavLink to='#' className="font-medium text-base hover:text-indigo-500 uppercase hover:font-medium border-indigo-500 mr-20 transition duration-150">
+              <div className="sm:flex items-center ">
+                <NavLink to='#' className="hidden md:visible font-medium text-base hover:text-indigo-500 uppercase hover:font-medium border-indigo-500 mr-20 transition duration-150">
                   Screenshot
                 </NavLink>
-                <NavLink to='#' className="font-medium text-base hover:text-indigo-500 uppercase hover:font-medium border-indigo-500 mr-20 transition duration-150">
+                <NavLink to='#' className="hidden md:visible font-medium text-base hover:text-indigo-500 uppercase hover:font-medium border-indigo-500 mr-20 transition duration-150">
                   Blog
                 </NavLink>
                 <button className="bg-indigo-500 hover:bg-indigo-600 focus:ring-2 focus:ring-indigo-300 rounded text-white py-1 px-3 uppercase">
