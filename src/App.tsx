@@ -8,7 +8,8 @@ import Project from './pages/Project'
 import LoginScreenOne from './pages/dashboard/pages/authentication/LoginScreenOne'
 import EmailTemplates from './pages/dashboard/EmailTemplates'
 import CookieBanners from './pages/dashboard/CookieBanners'
-import MobileApp from './pages/dashboard/pages/authentication/landing/MobileApp'
+import MobileApp from './pages/dashboard/pages/landing/MobileApp'
+import MusicPlayer from './pages/dashboard/pages/others/MusicPlayer'
 
 function App() {
 
@@ -29,7 +30,9 @@ function App() {
 
       <Route path='/dashboard/pages/authentication/login_1' element={<LoginScreenOne/>}/>
 
-      <Route path='/dashboard/pages/landing/mobile-app' element={<MobileApp/>}/>
+      {/* <Route path='/dashboard/pages/landing/mobile-app' element={<MobileApp/>}/> */}
+
+      <Route path='/dashboard/pages/others/music-player' element={<MusicPlayer/>}/>
     </Routes>
   )
 }
