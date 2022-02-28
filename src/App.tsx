@@ -10,12 +10,13 @@ import EmailTemplates from './pages/dashboard/EmailTemplates'
 import CookieBanners from './pages/dashboard/CookieBanners'
 import MobileApp from './pages/dashboard/pages/landing/MobileApp'
 import MusicPlayer from './pages/dashboard/pages/others/MusicPlayer'
+import DashboardContainer from './layouts/dashboard/core'
 
 function App() {
 
   return (
     <Routes>
-      <Route path='/' element={<Ecommerce/>}/>
+      <Route path='/' element={<DashboardContainer/>}/>
 
       <Route path='/complex-data' element={<ComplexData/>}/>
 
